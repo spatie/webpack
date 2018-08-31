@@ -1,8 +1,15 @@
 {
   "name": "@spatie/webpack",
-  "version": "0.0.1",
-  "main": "webpack.config.js",
+  "version": "0.1.0",
   "license": "MIT",
+  "authors": [
+    "Sebastian De Deyne <sebastian@spatie.be>",
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spatie/webpack.git"
+  },
+  "main": "webpack.config.js",
   "scripts": {
     "example": "cd example && webpack --mode production",
     "format": "prettier --write '**/*.js'",
@@ -16,14 +23,13 @@
     "caniuse-lite": "^1.0.30000697",
     "css-loader": "^1.0.0",
     "cssnano": "^4.1.0",
-    "dotenv": "^6.0.0",
     "mini-css-extract-plugin": "^0.4.1",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^5.3.0",
-    "tailwindcss": "^0.6.0",
+    "tailwindcss": "^0.6.5",
     "vue-loader": "^15.3.0",
-    "vue-template-compiler": "*",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-manifest-plugin": "^2.0.3",
