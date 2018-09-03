@@ -11,7 +11,7 @@ module.exports = ({
     merge(
         {
             output: {
-                path: `${__dirname}/../../public`,
+                path: `${__dirname}/../../../public`,
                 publicPath: '/',
                 filename: '[name]-[hash].js',
                 chunkFilename: 'js/[name]-[chunkhash].js',
