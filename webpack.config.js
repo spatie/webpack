@@ -3,6 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = ({
     browsers = '>0.25%, > 5% in BE, not ie 11, not op_mini all',
@@ -95,7 +96,11 @@ module.exports = ({
                     basePath: '/',
                     publicPath: '/',
                 }),
-            ],
+            ].concat(
+                argv.analyze !== undefined
+                    ? [new BundleAnalyzerPlugin()]
+                    : []
+            ),
 
             stats: {
                 hash: false,
