@@ -3,12 +3,11 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-module.exports = ({
-    browsers = '>0.25%, > 5% in BE, not ie 11, not op_mini all',
-    ...config
-}) => (env, argv) =>
+const browsers = '>0.25%, > 5% in BE, not ie 11, not op_mini all';
+
+module.exports = config => (env, argv) =>
     merge(
         {
             output: {
@@ -97,9 +96,7 @@ module.exports = ({
                     publicPath: '/',
                 }),
             ].concat(
-                argv.analyze !== undefined
-                    ? [new BundleAnalyzerPlugin()]
-                    : []
+                argv.analyze !== undefined ? [new BundleAnalyzerPlugin()] : []
             ),
 
             stats: {
@@ -118,6 +115,17 @@ module.exports = ({
 
             performance: {
                 hints: false,
+            },
+
+            optimization: {
+                splitChunks: {
+                    cacheGroups: {
+                        vendor: {
+                            chunks: 'all',
+                            test: /[\\/]node_modules[\\/]/,
+                        },
+                    },
+                },
             },
         },
         config
