@@ -116,18 +116,6 @@ module.exports = config => (env, argv) =>
             performance: {
                 hints: false,
             },
-
-            optimization: {
-                splitChunks: {
-                    cacheGroups: {
-                        vendor: {
-                            name: 'js/vendor',
-                            chunks: 'all',
-                            test: /[\\/]node_modules[\\/]/,
-                        },
-                    },
-                },
-            },
         },
         config
     );
