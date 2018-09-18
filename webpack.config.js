@@ -121,6 +121,7 @@ module.exports = config => (env, argv) =>
                 splitChunks: {
                     cacheGroups: {
                         vendor: {
+                            name: 'js/vendor',
                             chunks: 'all',
                             test: /[\\/]node_modules[\\/]/,
                         },
